@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>Add a New Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      
+      h1 {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+      
+      button[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+      
+    </style>
+
+  </head>
+  <form method="POST" action="{{url_for('add_task')}}" email = {{email}}>
+  <body>
+    <div class="container">
+      <h1>Add a New Task</h1>
+     
+        <input type="text" name="title" placeholder="Enter a new task">
+        <input type="text" name="description" placeholder="Enter your task description">
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </body>
+</html>
