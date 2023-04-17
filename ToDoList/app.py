@@ -157,5 +157,17 @@ def add_task():
         return redirect(url_for('show_tasks'))
     return render_template("add_task.html")
 
+@app.route('/delete_task/<string:task>', methods = ["POST"])
+def delete_task(task):
+    if request.method == "POST":
+        taskk = task
+        taske = Tasks.query.filter_by(task=taskk).first_or_404()
+        db.session.delete(taske)
+        db.session.commit()
+        # db.flash(f'Task {taskk} deleted successfully!', 'success')
+    return render_template('dashboard.html', tasks = Tasks.query.all())
+
+
+    
 if __name__ == '__main__':
     app.run(debug=True)
